@@ -15,14 +15,14 @@ export const CLOUD_NAME="YOUR_CLOUDINARY_NAME", PRESET="YOUR_UNSIGNED_PRESET";
 // ===== PAYMENTS: Paddle (the only gateway). Card form is embedded inside the dashboard (Paddle inline checkout). =====
 // Set PADDLE_ON=true AFTER you finish the Paddle setup in README.md (token + 3 price ids + webhook).
 export const PADDLE_ON=true;
-export const PADDLE_ENV="sandbox";                       // "sandbox" while testing, "production" when live
-export const PADDLE_TOKEN="test_f598e36c13c80c77d6853d6eb06";   // Paddle > Developer tools > Authentication > Client-side tokens (public, safe here)
+export const PADDLE_ENV="production";                       // "sandbox" while testing, "production" when live
+export const PADDLE_TOKEN="live_fbeff5744733f1c0606a11c6a3a";   // Paddle > Developer tools > Authentication > Client-side tokens (public, safe here)
 // Prices (USD). Create the same 3 prices in Paddle (recurring) and paste their ids below (pri_...).
 // m1 = every 1 month, m6 = every 6 months, m12 = every 12 months (1 year).
 export const PLANS=[
- {id:"m1", months:1,  usd:10, price:"pri_01m6r4hr7rkkn0fqge9jvv8s77"},
- {id:"m6", months:6,  usd:51, price:"pri_01m6r4kz0vhx5a0tgjenf0h0xp",  save:15},
- {id:"m12",months:12, usd:90, price:"pri_01m6r4p74z46r0yphybnwjygrn", save:25}
+ {id:"m1", months:1,  usd:10, price:"pri_01m6wgj9d27xr6c9y5dxj9r45z"},
+ {id:"m6", months:6,  usd:51, price:"pri_01m6wgkm819vhfrya9ttdsvfvp",  save:15},
+ {id:"m12",months:12, usd:90, price:"pri_01m6wgmh75mmb8aqhrscdfb6ap", save:25}
 ];
 export const menuUrl=(slug,t)=>{const lo=/^(localhost|127\.|192\.168\.|10\.)/.test(location.hostname)||location.protocol==='file:';return lo?location.origin+'/menu.html?r='+slug+(t?'&t='+t:''):location.origin+'/m/'+slug+(t?'?t='+t:'')};
 export const region=()=>{try{const z=Intl.DateTimeFormat().resolvedOptions().timeZone||'';if(/Karachi/.test(z))return 'PK';const m=(navigator.language||'').match(/-([A-Za-z]{2})$/);return m?m[1].toUpperCase():''}catch(e){return ''}};
